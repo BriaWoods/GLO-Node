@@ -16,10 +16,10 @@ var authToken = "f5e95817975c0d7d9635ca0e14058113";
 
 //require the Twilio module and create a REST client
 var client = require('twilio')(accountSid, authToken);
-
+/*
 router.get('/phoneBob', function(req, res, next){
   client.messages.create({
-      to: "+15047290928",
+      to: "+150472909",
       from: "+15042175696",
       body: "Fight on!",
       mediaUrl: "https://s-media-cache-ak0.pinimg.com/736x/10/5e/62/105e6250e9d7628db83dbf8fc901ac73.jpg",
@@ -32,7 +32,7 @@ router.get('/phoneBob', function(req, res, next){
     }
   });
 });
-
+*/
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
