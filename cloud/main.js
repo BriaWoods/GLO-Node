@@ -1,4 +1,4 @@
-require("./app.js")
+require("~/app.js")
 
 var twilioAccountSid = 'AC00005f471ceffbd434f16b13f4ac2fc0';
 var twilioAuthToken = '7072c3bd9cf623af8de3bf54c051f113';
