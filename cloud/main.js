@@ -23,7 +23,7 @@ Parse.Cloud.define("logIn", function(req, res) {
 			}
 			*/
 	console.log('Here I am in the Parse Cloud Code Login Function');
-	res.success('You made it to the logIn function in the Parse Cloud Code!')
+	//res.success('You made it to the logIn function in the Parse Cloud Code!')
 });
 
 Parse.Cloud.define("sendCode", function(req, res) {
