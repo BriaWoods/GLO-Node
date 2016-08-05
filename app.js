@@ -20,7 +20,7 @@ var ParseServer = require('parse-server').ParseServer;
 
 // Config the parse server settings
 //
-var parseAPI = new ParseServer({ databaseURI: 'mongodb://BriaWoods:achays360@ds047315.mlab.com:47315/glo',
+var parseAPI = new ParseServer({ databaseURI: 'mongodb://shlooney:3dsglobalroundup@ds145315.mlab.com:45315/glodev',
     cloud: './cloud/main.js',
     verifyUserEmails: false,
     appName: 'GLO',
@@ -52,7 +52,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Mongoose connection
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://BriaWoods:achays360@ds047315.mlab.com:47315/glo');
+mongoose.connect('mongodb://shlooney:3dsglobalroundup@ds145315.mlab.com:45315/glodev');
 
 app.use('/', routes);
 app.use('/users', users);
