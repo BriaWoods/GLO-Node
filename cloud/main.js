@@ -33,27 +33,29 @@ Parse.Cloud.define("sendCode", function(req, res) {
 
 	var phoneNumber = req.params.phoneNumber;
 	phoneNumber = phoneNumber.replace(/\D/g, '');
-
+	console.log('heres the given phone number: ' + phoneNumber)
 	//var lang = req.params.language;
 	//if(lang !== undefined && languages.indexOf(lang) != -1) {
 	//	language = lang;
 	//}
 
 	if (!phoneNumber || phoneNumber.length != 10) return res.error('Invalid Parameters');
-
+	console.log('about to start the parse user query')
 	//Parse.Cloud.useMasterKey();
 	var query = new Parse.Query(Parse.User);
 	//query.equalTo({ useMasterKey: true });
-
+	
 	query.equalTo('username', phoneNumber + "");
 	query.first({useMasterKey: true}).then(function(result) {
+		console.log('proceeding to generate random 4-digit code')
 		var min = 1000; var max = 9999;
 		var num = Math.floor(Math.random() * (max - min + 1)) + min;
 		if (result) {
+			console.log('get a query result: ' + result);
 			result.setPassword(secretPasswordToken + num);
 			//result.set("language", language);
 			result.save().then(function() {
-				return sendCodeSms(phoneNumber, num, language);
+				return sendCodeSms(phoneNumber, num);
 			}).then(function() {
 				res.success({});
 			}, function(err) {
