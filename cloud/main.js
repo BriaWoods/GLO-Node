@@ -41,10 +41,11 @@ Parse.Cloud.define("sendCode", function(req, res) {
 	if (!phoneNumber || phoneNumber.length != 10) return res.error('Invalid Parameters');
 
 	//Parse.Cloud.useMasterKey();
-	var query = new Parse.Query(req.user);
+	var query = new Parse.Query(Parse.User);
 	//query.equalTo({ useMasterKey: true });
+
 	query.equalTo('username', phoneNumber + "");
-	query.first().then(function(result) {
+	query.first({useMasterKey: true}).then(function(result) {
 		var min = 1000; var max = 9999;
 		var num = Math.floor(Math.random() * (max - min + 1)) + min;
 		if (result) {
