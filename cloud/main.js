@@ -57,7 +57,7 @@ Parse.Cloud.define("sendCode", function(req, res) {
 				res.error(err);
 			});
 		} else {
-			
+			console.log('Proceeding to sendSMS')		
 			sendCodeSms(phoneNumber, num);
 
 			/* Going to simply try sending a message here first, then will go into creating a user with provided credentials
@@ -94,6 +94,9 @@ function sendCodeSms(phoneNumber, code) {
 		}
 */
 	var promise = new Parse.Promise();
+
+	console.log('about to send a twilio SMS')
+
 	twilio.sendSms({
 		//to: prefix + phoneNumber.replace(/\D/g, ''),
 		to: prefix + phoneNumber.replace(/\D/g, ''),
