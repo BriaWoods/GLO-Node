@@ -17,7 +17,7 @@ var routes = require('./routes/index')(io);
 
 // parseServer stuff
 var ParseServer = require('parse-server').ParseServer;
-
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 // Config the parse server settings
 //
 var parseAPI = new ParseServer({ databaseURI: 'mongodb://shlooney:3dsglobalroundup@ds145315.mlab.com:45315/glodev',
