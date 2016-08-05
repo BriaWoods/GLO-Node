@@ -44,7 +44,7 @@ Parse.Cloud.define("sendCode", function(req, res) {
 	//Parse.Cloud.useMasterKey();
 	var query = new Parse.Query(Parse.User);
 	//query.equalTo({ useMasterKey: true });
-	
+	console.log('query was just defined');
 	query.equalTo('username', phoneNumber + "");
 	query.first({useMasterKey: true}).then(function(result) {
 		console.log('proceeding to generate random 4-digit code')
