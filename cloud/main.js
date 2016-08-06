@@ -30,6 +30,9 @@ Parse.Cloud.define("logIn", function(req, res) {
 Parse.Cloud.define("sendCode", function(req, res) {
 	console.log('Enter the sendCode function')
 	//res.success('You made it to the sendCode function in the Parse Cloud Code!')
+	
+	var user = request.user; // request.user replaces Parse.User.current()
+	var token = user.getSessionToken(); // get session token from request.user
 
 	var phoneNumber = req.params.phoneNumber;
 	phoneNumber = phoneNumber.replace(/\D/g, '');
@@ -46,7 +49,7 @@ Parse.Cloud.define("sendCode", function(req, res) {
 	//query.equalTo({ useMasterKey: true });
 	console.log('query was just defined');
 	query.equalTo('username', phoneNumber + "");
-	query.first({useMasterKey: true}).then(function(result){
+	query.first({ useMasterKey: true, sessionToken: token }).then(function(result){
 		if (result) {
 			console.log('im in it and I cant get out')
 			res.success()
