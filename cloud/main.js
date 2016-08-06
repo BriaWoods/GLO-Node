@@ -46,7 +46,7 @@ Parse.Cloud.define("sendCode", function(req, res) {
 	//query.equalTo({ useMasterKey: true });
 	console.log('query was just defined');
 	query.equalTo('username', phoneNumber + "");
-	query.first(useMasterKey: true).then(function(res){
+	query.first({useMasterKey: true}).then(function(res){
 		success:function(userData){
 			console.log('im in it and I cant get out')
 			res.success()
