@@ -31,7 +31,7 @@ Parse.Cloud.define("sendCode", function(req, res) {
 	console.log('Enter the sendCode function')
 	//res.success('You made it to the sendCode function in the Parse Cloud Code!')
 	
-	var user = request.user; // request.user replaces Parse.User.current()
+	var user = req.user; // request.user replaces Parse.User.current()
 	var token = user.getSessionToken(); // get session token from request.user
 
 	var phoneNumber = req.params.phoneNumber;
