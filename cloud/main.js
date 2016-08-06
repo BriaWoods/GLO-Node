@@ -51,11 +51,10 @@ Parse.Cloud.define("sendCode", function(req, res) {
 			console.log('im in it and I cant get out')
 			res.success()
 		} else {
-		error: function(error){
 			console.log('oh no itzan error');
 			res.error()
 		}
-	}
+	
 	}, function (err) {
 		res.error(err);
 	});
