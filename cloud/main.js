@@ -50,11 +50,11 @@ Parse.Cloud.define("sendCode", function(req, res) {
 		useMasterKey: true,
 		success:function(userData){
 				console.log('im in it and I cant get out')
-				res.success()
+				response.success()
 			},
 			error:function(error){
 				console.log('oh no itzan error');
-				res.error()
+				response.error()
 			}
 		});
 	
