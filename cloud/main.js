@@ -46,7 +46,15 @@ Parse.Cloud.define("sendCode", function(req, res) {
 	//query.equalTo({ useMasterKey: true });
 	console.log('query was just defined');
 	query.equalTo('username', phoneNumber + "");
-	query.first().then(function(result) {
+	query.first(
+		{useMasterKey: true},
+		success:function(userData){
+				console.log('im in it and I cant get out')
+			},
+			error:function(error){
+				console.log('oh no itzan error');
+			}
+		).then(function(result) {
 		console.log('proceeding to generate random 4-digit code')
 		var min = 1000; var max = 9999;
 		var num = Math.floor(Math.random() * (max - min + 1)) + min;
