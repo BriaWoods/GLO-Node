@@ -8,7 +8,7 @@ var mongoose = require('mongoose');
 var request = require('request');
 var querystring = require('querystring');
 
-var Parse = require('parse');
+var Parse = require('parse/node');
 
 /* Twilio stuff */
 
