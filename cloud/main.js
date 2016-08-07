@@ -42,7 +42,7 @@ Parse.Cloud.define("sendCode", function(req, res) {
 	//	language = lang;
 	//}
 
-	Parse.Cloud.useMasterKey();
+	//Parse.Cloud.useMasterKey();
 
 	if (!phoneNumber || phoneNumber.length != 10) return res.error('Invalid Parameters');
 	console.log('about to start the parse user query')
@@ -51,7 +51,7 @@ Parse.Cloud.define("sendCode", function(req, res) {
 	//query.equalTo({ useMasterKey: true });
 	console.log('query was just defined');
 	query.equalTo('username', phoneNumber + "");
-	query.first().then(function(result){
+	query.first({ useMasterKey: true }).then(function(result){
 		if (result) {
 			console.log('im in it and I cant get out')
 			res.success()

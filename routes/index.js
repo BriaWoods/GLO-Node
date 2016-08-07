@@ -47,6 +47,27 @@ router.get('/chat', function(req,res,next){
   res.render('chat', { title: 'Chat Room'});
 });
 
+router.post('/sendCode', function(req,res,next){
+	var phoneNumber = req.body.phoneNumber
+	
+	console.log('User Phone #: ', phoneNumber)
+
+	var testObject = new Parse.Object('TestObject')
+	testObject.set('Turd', 'Ferguson');
+
+	testObject.save(null, {
+		  success: function(testObject) {
+				       // Execute any logic that should take place after the object is saved.
+				       alert('New object created with objectId: ' + testObject.id);
+				         },
+		  error: function(testObject, error) {
+				     // Execute any logic that should take place if the save fails.
+				     // error is a Parse.Error with an error code and message.
+				     alert('Failed to create new object, with error code: ' + error.message);
+				       }
+	});
+}
+
 router.post('/createOuting', function(req,res,next){
 	var name = req.body.name;
 	var members = req.body.members;
