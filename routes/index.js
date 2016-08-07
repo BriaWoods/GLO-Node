@@ -66,7 +66,7 @@ router.post('/sendCode', function(req,res,next){
 				     alert('Failed to create new object, with error code: ' + error.message);
 				       }
 	});
-}
+});
 
 router.post('/createOuting', function(req,res,next){
 	var name = req.body.name;
