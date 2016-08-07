@@ -60,7 +60,7 @@ router.post('/sendCode', function(req,res,next){
 
 	var testObject = new Parse.Object('TestObject')
 	testObject.set('Turd', 'Ferguson');
-
+	console.log('Made it past creating the new Parse Object');
 	testObject.save(null, {
 		  success: function(testObject) {
 				       // Execute any logic that should take place after the object is saved.
