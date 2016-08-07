@@ -8,6 +8,8 @@ var mongoose = require('mongoose');
 var request = require('request');
 var querystring = require('querystring');
 
+var Parse = require('parse');
+
 /* Twilio stuff */
 
 // Twilio Credentials
