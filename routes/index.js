@@ -8,7 +8,7 @@ var mongoose = require('mongoose');
 var request = require('request');
 var querystring = require('querystring');
 
-var Parse = require('parse/node').Parse;
+var Parse = require('parse/node');
 
 Parse.initialize('3DSGLOBALROUNDUP', 'javajavajava', 'thisisverysecret');
 Parse.serverURL = 'http://glo-app.heroku.com/parse'
