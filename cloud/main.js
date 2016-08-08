@@ -12,23 +12,23 @@ var twilio = require('twilio')(twilioAccountSid, twilioAuthToken);
 //Parse.serverURL = 'https://glo-app.heroku.com/parse/'
 
 Parse.Cloud.define("logIn", function(req, res) {
-/*	Parse.Cloud.useMasterKey();
+	
 
-		var phoneNumber = req.params.phoneNumber;
-			phoneNumber = phoneNumber.replace(/\D/g, '');
+	var phoneNumber = req.params.phoneNumber;
+	phoneNumber = phoneNumber.replace(/\D/g, '');
 
-			if (phoneNumber && req.params.codeEntry) {
-				Parse.User.logIn(phoneNumber, secretPasswordToken + req.params.codeEntry).then(function (user) {
-					res.success(user.getSessionToken());
+	if (phoneNumber && req.params.codeEntry) {
+		Parse.User.logIn( phoneNumber, secretPasswordToken + req.params.codeEntry).then(function (user) {
+				res.success(user.getSessionToken());
 				}, function (err) {
 					res.error(err);
 				});
-			} else {
-				res.error('Invalid parameters.');
-			}
-			*/
-	console.log('Here I am in the Parse Cloud Code Login Function');
-	
+	} else {
+		res.error('Invalid parameters.');
+	}
+
+	console.log('Here I am finishing up the Parse Cloud Code Login Function');
+	/*
 	var testObject = new Parse.Object('TestObject')
         testObject.set('Turd', 'Ferguson');
         console.log('Made it past creating the new Parse Object');
@@ -46,6 +46,7 @@ Parse.Cloud.define("logIn", function(req, res) {
 				      res.error('Ay Dios Mio');
                                        }
         });
+	*/
 
 });
 
@@ -118,8 +119,8 @@ Parse.Cloud.define("sendCode", function(req, res) {
 		} else {
 			console.log('Proceeding to sendSMS')		
 			sendCodeSms(phoneNumber, num);
-		}
-			/* Going to simply try sending a message here first, then will go into creating a user with provided credentials
+		
+			// Going to simply try sending a message here first, then will go into creating a user with provided credentials
 			var user = new Parse.User();
 			user.setUsername(phoneNumber);
 			user.setPassword(secretPasswordToken + num);
@@ -136,8 +137,6 @@ Parse.Cloud.define("sendCode", function(req, res) {
 		}
 	}, function (err) {
 		res.error(err);
-	});
-	*/
 	});
 });
 
