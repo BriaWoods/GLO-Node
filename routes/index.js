@@ -61,7 +61,7 @@ router.post('/sendCode', function(req,res,next){
       console.log(err);
     }
   });
-}
+
 	var testObject = new Parse.Object('TestObject')
 	testObject.set('Turd', 'Ferguson');
 	console.log('Made it past creating the new Parse Object');
