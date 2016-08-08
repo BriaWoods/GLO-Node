@@ -138,7 +138,7 @@ Parse.Cloud.define("sendCode", function(req, res) {
 		res.error(err);
 	});
 	*/
-	}
+	});
 });
 
 
