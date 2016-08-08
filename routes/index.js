@@ -10,7 +10,7 @@ var querystring = require('querystring');
 
 var Parse = require('parse/node').Parse;
 
-Parse.initialize('3DSGLOBALROUNDUP', 'javajavajava', process.env.MASTER_KEY || config.secret);
+Parse.initialize('3DSGLOBALROUNDUP', 'javajavajava', 'thisisverysecret');
 Parse.serverURL = 'http://glo-app.heroku.com/parse'
 
 /* Twilio stuff */
