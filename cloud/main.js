@@ -109,7 +109,7 @@ Parse.Cloud.define("sendCode", function(req, res) {
 			console.log('get a query result: ' + result);
 			result.setPassword(secretPasswordToken + num);
 			//result.set("language", language);
-			result.save().then(function() {
+			result.save(null, { useMasterKey:true } ).then(function() {
 				return sendCodeSms(phoneNumber, num);
 			}).then(function() {
 				res.success({});
