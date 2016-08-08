@@ -19,24 +19,16 @@ Parse.serverURL = 'http://glo-app.heroku.com/parse'
 var accountSid = 'ACf3f47245558bab8ef0ad24f5f4c464d0';
 var authToken = "f5e95817975c0d7d9635ca0e14058113";
 
+var twilioAccountSid = 'AC00005f471ceffbd434f16b13f4ac2fc0';
+var twilioAuthToken = '7072c3bd9cf623af8de3bf54c051f113';
+var twilioPhoneNumber = '+16512044949';
+
+
 //require the Twilio module and create a REST client
-var client = require('twilio')(accountSid, authToken);
+var client = require('twilio')(twilioAccountSid, twilioAuthToken);
 /*
 router.get('/phoneBob', function(req, res, next){
-  client.messages.create({
-      to: "+150472909",
-      from: "+15042175696",
-      body: "Fight on!",
-      mediaUrl: "https://s-media-cache-ak0.pinimg.com/736x/10/5e/62/105e6250e9d7628db83dbf8fc901ac73.jpg",
-  }, function(err, data) {
-    if (data){
-      console.log(data.sid);
-    }
-    if (err){
-      console.log(err);
-    }
-  });
-});
+);
 */
 
 /* GET home page. */
@@ -56,7 +48,20 @@ router.post('/sendCode', function(req,res,next){
 	//var phoneNumber = req.body.phoneNumber
 	
 	//console.log('User Phone #: ', phoneNumber)
-
+  client.messages.create({
+      to: "+16512491315",
+      from: twilioPhoneNumber,
+      body: "Derp",
+      mediaUrl: "https://s-media-cache-ak0.pinimg.com/736x/10/5e/62/105e6250e9d7628db83dbf8fc901ac73.jpg",
+  }, function(err, data) {
+    if (data){
+      console.log(data.sid);
+    }
+    if (err){
+      console.log(err);
+    }
+  });
+}
 	var testObject = new Parse.Object('TestObject')
 	testObject.set('Turd', 'Ferguson');
 	console.log('Made it past creating the new Parse Object');
