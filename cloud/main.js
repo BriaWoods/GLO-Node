@@ -4,7 +4,7 @@ require("../app.js")
 //Parse.serverURL = 'http://glo-app.heroku.com/parse';
 var twilioAccountSid = 'AC00005f471ceffbd434f16b13f4ac2fc0';
 var twilioAuthToken = '7072c3bd9cf623af8de3bf54c051f113';
-var twilioPhoneNumber = '+16512044949';
+var twilioPhoneNumber = '+16512041919';
 var secretPasswordToken = 's0ftlyAs1f1PlayPianoInTh3D@rk';
 
 var twilio = require('twilio')(twilioAccountSid, twilioAuthToken);
