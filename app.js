@@ -10,6 +10,8 @@ var config = require('./config')
 
 var app = express();
 
+process.env.VERBOSE=true
+
 // io stuff
 var io = require('socket.io')();
 app.io = io;
