@@ -10,9 +10,8 @@ var querystring = require('querystring');
 
 var Parse = require('parse/node');
 
-
 Parse.initialize('3DSGLOBALROUNDUP');
-Parse.serverURL = 'https://glo-app.heroku'
+Parse.serverURL = 'http://glo-app.heroku.com/parse'
 
 /* Twilio stuff */
 
