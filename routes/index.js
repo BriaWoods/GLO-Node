@@ -53,9 +53,9 @@ router.get('/chat', function(req,res,next){
 });
 
 router.post('/sendCode', function(req,res,next){
-	var phoneNumber = req.body.phoneNumber
+	//var phoneNumber = req.body.phoneNumber
 	
-	console.log('User Phone #: ', phoneNumber)
+	//console.log('User Phone #: ', phoneNumber)
 
 	var testObject = new Parse.Object('TestObject')
 	testObject.set('Turd', 'Ferguson');
