@@ -30,8 +30,7 @@ var parseAPI = new ParseServer({ databaseURI: 'mongodb://shlooney:3dsglobalround
     fileKey: process.env.FILE_KEY || 'myFileKey',
     masterKey: process.env.MASTER_KEY || config.secret,
     serverURL: 'http://glo-app.heroku.com/parse', // || prcess.env.SERVER_URL
-    verbose: true,
-    javascriptKey: 'javajavajava'
+    verbose: true
     // publicServerURL: 'http://log-log.lol/parse', //process.env.SERVER_URL
 });
 
