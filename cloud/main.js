@@ -31,6 +31,7 @@ Parse.Cloud.define("logIn", function(req, res) {
         testObject.set('Turd', 'Ferguson');
         console.log('Made it past creating the new Parse Object');
         testObject.save(null, {
+		   useMasterKey: true,
                    success: function(testObject) {
                                         // Execute any logic that should take place after the object is saved.
                                         alert('New object created with objectId: ' + testObject.id);
