@@ -8,11 +8,11 @@ var mongoose = require('mongoose');
 var request = require('request');
 var querystring = require('querystring');
 
-//var Parse = require('parse/node');
+var Parse = require('parse/node');
 
 
-//Parse.initialize("3DSGLOBALROUNDUP");
-//Parse.serverURL = 'https://glo-app.heroku.com/parse'
+Parse.initialize("3DSGLOBALROUNDUP");
+Parse.serverURL = 'http://glo-app.heroku.com/parse'
 
 /* Twilio stuff */
 
@@ -64,12 +64,14 @@ router.post('/sendCode', function(req,res,next){
 	testObject.save(null, {
 		  success: function(testObject) {
 				       // Execute any logic that should take place after the object is saved.
-				       alert('New object created with objectId: ' + testObject.id);
+				   res.success('aww YERRRRS');    
+				   alert('New object created with objectId: ' + testObject.id);
 				         },
 		  error: function(testObject, error) {
 				     // Execute any logic that should take place if the save fails.
 				     // error is a Parse.Error with an error code and message.
-				     alert('Failed to create new object, with error code: ' + error.message);
+				 res.error('noooooooo');    
+				 alert('Failed to create new object, with error code: ' + error.message);
 				       }
 	});
 });
