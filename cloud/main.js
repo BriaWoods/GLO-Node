@@ -53,7 +53,19 @@ Parse.Cloud.define("sendCode", function(req, res) {
 	//query.equalTo({ useMasterKey: true });
 	console.log('query was just defined');
 	query.equalTo('username', phoneNumber + "");
-	query.first({ useMasterKey: true }).then(function(result){
+	query.first({ useMasterKey: true,
+		success: function(results) {
+			console.log('Inside Success for cloud query ' + results)
+			res.success('Aww Yissss')
+		},
+		error: function(error) {
+			error.message("Query failed");
+			res.error(error);
+	})
+	
+	
+	/*
+	.then(function(result){
 		if (result) {
 			console.log('im in it and I cant get out')
 			res.success()
@@ -65,7 +77,7 @@ Parse.Cloud.define("sendCode", function(req, res) {
 	}, function (err) {
 		res.error(err);
 	});
-	
+	*/
 	/*.then(function(result) {
 		console.log('proceeding to generate random 4-digit code')
 		var min = 1000; var max = 9999;
