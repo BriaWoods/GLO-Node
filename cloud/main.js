@@ -9,6 +9,8 @@ var secretPasswordToken = 's0ftlyAs1f1PlayPianoInTh3D@rk';
 
 var twilio = require('twilio')(twilioAccountSid, twilioAuthToken);
 
+Parse.serverURL = 'https://glo-app.heroku.com/parse/'
+
 Parse.Cloud.define("logIn", function(req, res) {
 /*	Parse.Cloud.useMasterKey();
 
