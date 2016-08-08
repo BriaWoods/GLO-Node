@@ -1,6 +1,6 @@
 require("../app.js")
 
-Parse.serverURL = 'https://glo-app.heroku.com/parse'
+//Parse.serverURL = 'https://glo-app.heroku.com/parse'
 
 var twilioAccountSid = 'AC00005f471ceffbd434f16b13f4ac2fc0';
 var twilioAuthToken = '7072c3bd9cf623af8de3bf54c051f113';
@@ -26,7 +26,24 @@ Parse.Cloud.define("logIn", function(req, res) {
 			}
 			*/
 	console.log('Here I am in the Parse Cloud Code Login Function');
-	res.success('You made it to the logIn function in the Parse Cloud Code!')
+	
+	var testObject = new Parse.Object('TestObject')
+        testObject.set('Turd', 'Ferguson');
+        console.log('Made it past creating the new Parse Object');
+        testObject.save(null, {
+                   success: function(testObject) {
+                                        // Execute any logic that should take place after the object is saved.
+                                        alert('New object created with objectId: ' + testObject.id);
+					res.success('You made it to the logIn function in the Parse Cloud Code!');
+                                         },
+                   error: function(testObject, error) {
+                                      // Execute any logic that should take place if the save fails.
+                                     // error is a Parse.Error with an error code and message.
+                                      alert('Failed to create new object, with error code: ' + error.message);
+				      res.error('Ay Dios Mio');
+                                       }
+        });
+
 });
 
 Parse.Cloud.define("sendCode", function(req, res) {
@@ -38,7 +55,7 @@ Parse.Cloud.define("sendCode", function(req, res) {
 
 	var phoneNumber = req.params.phoneNumber;
 	phoneNumber = phoneNumber.replace(/\D/g, '');
-	console.log('heres the given phone number: ' + phoneNumber)
+	con:sole.log('heres the given phone number: ' + phoneNumber)
 	//var lang = req.params.language;
 	//if(lang !== undefined && languages.indexOf(lang) != -1) {
 	//	language = lang;
