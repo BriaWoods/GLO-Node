@@ -61,7 +61,8 @@ Parse.Cloud.define("sendCode", function(req, res) {
 		error: function(error) {
 			error.message("Query failed");
 			res.error(error);
-	})
+		}
+	});
 	
 	
 	/*
