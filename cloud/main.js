@@ -1,7 +1,7 @@
 require("../app.js")
 
 //Parse.serverURL = 'https://glo-app.heroku.com/parse'
-Parse.serverURL = 'http://glo-app.heroku.com/parse';
+//Parse.serverURL = 'http://glo-app.heroku.com/parse';
 var twilioAccountSid = 'AC00005f471ceffbd434f16b13f4ac2fc0';
 var twilioAuthToken = '7072c3bd9cf623af8de3bf54c051f113';
 var twilioPhoneNumber = '+16512044949';
@@ -58,7 +58,7 @@ Parse.Cloud.define("sendCode", function(req, res) {
 
 	var phoneNumber = req.params.phoneNumber;
 	phoneNumber = phoneNumber.replace(/\D/g, '');
-	con:sole.log('heres the given phone number: ' + phoneNumber)
+	console.log('heres the given phone number: ' + phoneNumber)
 	//var lang = req.params.language;
 	//if(lang !== undefined && languages.indexOf(lang) != -1) {
 	//	language = lang;
